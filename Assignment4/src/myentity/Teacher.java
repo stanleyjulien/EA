@@ -5,10 +5,12 @@
  */
 package myentity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -20,6 +22,7 @@ public class Teacher extends Person{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double salary;
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Laptop laptop;
     
     

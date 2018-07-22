@@ -7,6 +7,7 @@ package mymain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -48,7 +49,7 @@ public class MainTest {
         em.persist(teacher2);
         
         //Commit the transaction
-        tx.commit();
+        //tx.commit();
         
         Laptop laptop1 = new Laptop("Dell");
         Laptop laptop2 = new Laptop("Mac");
@@ -67,6 +68,7 @@ public class MainTest {
         teacher2.setLaptop(laptop2);
         
         //Persist object
+        //tx.begin();
         em.persist(student1);
         em.persist(student2);
         em.persist(student3);

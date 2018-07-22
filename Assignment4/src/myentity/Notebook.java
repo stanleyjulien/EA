@@ -19,6 +19,8 @@ import javax.persistence.Id;
 public class Notebook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
     private int numOfPages;
 
     public Notebook()

@@ -19,7 +19,7 @@ import javax.persistence.Id;
 public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    private int id;
     private String model;
 
     public Laptop()

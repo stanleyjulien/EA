@@ -5,6 +5,8 @@
     <class>myentity.Person</class>
     <class>myentity.Student</class>
     <class>myentity.Teacher</class>
+    <class>myentity.Notebook</class>
+    <class>myentity.Laptop</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=TestDB"/>
       <property name="javax.persistence.jdbc.user" value="sa"/>

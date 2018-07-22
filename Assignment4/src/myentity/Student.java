@@ -6,10 +6,12 @@
 package myentity;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,6 +24,7 @@ public class Student extends Person{
     private int id;
             
     private double gpa;
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Notebook> notebook;
     
     public Student()
