@@ -13,6 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import myentity.Laptop;
+import myentity.MyCRUD;
 import myentity.Notebook;
 import myentity.Student;
 import myentity.Teacher;
@@ -78,7 +79,14 @@ public class MainTest {
         //Commit the transaction
         tx.commit();
         
+        System.out.println(em.contains(student1));
         
+        // Delete Student
+        //MyCRUD mycrud = new MyCRUD();
+        //boolean del;
+        //del = mycrud.deleteStudent(51, em, tx);
+        
+        //System.out.println(del);
         //Close the ressource
         em.close();
         emf.close();
