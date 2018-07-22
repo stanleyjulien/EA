@@ -76,6 +76,7 @@ public class MainTest {
         //Commit the transaction
         tx.commit();
         
+        
         //Close the ressource
         em.close();
         emf.close();
