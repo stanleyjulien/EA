@@ -49,8 +49,6 @@ public class MainTest {
         em.persist(teacher1);
         em.persist(teacher2);
         
-        //Commit the transaction
-        //tx.commit();
         
         Laptop laptop1 = new Laptop("Dell");
         Laptop laptop2 = new Laptop("Mac");
@@ -69,7 +67,6 @@ public class MainTest {
         teacher2.setLaptop(laptop2);
         
         //Persist object
-        //tx.begin();
         em.persist(student1);
         em.persist(student2);
         em.persist(student3);
@@ -79,17 +76,24 @@ public class MainTest {
         //Commit the transaction
         tx.commit();
         
-        System.out.println(em.contains(student1));
-        
-        // Delete Student
-        //MyCRUD mycrud = new MyCRUD();
-        //boolean del;
-        //del = mycrud.deleteStudent(51, em, tx);
-        
-        //System.out.println(del);
         //Close the ressource
         em.close();
         emf.close();
         
+        /*
+        // Delete Student
+        MyCRUD mycrud = new MyCRUD();
+        boolean isDeleted;
+        isDeleted = mycrud.deleteStudent(1);
+        
+        if(isDeleted == true)
+        {
+            System.out.println("Student exists and is deleted succesfully!");
+        }
+        else
+        {
+            System.out.println("Student doesn't exist!");
+        }
+        */
     }
 }
