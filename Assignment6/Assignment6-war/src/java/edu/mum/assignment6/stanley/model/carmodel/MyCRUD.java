@@ -18,6 +18,7 @@ import javax.transaction.Transaction;
 public class MyCRUD {
     private EntityManagerFactory emf;
     private EntityManager em;
+    private EntityTransaction tx;
     
     public MyCRUD()
     {
@@ -27,11 +28,34 @@ public class MyCRUD {
     
     public void save(Car car)
     {
-        EntityTransaction tx = em.getTransaction();
+        tx = em.getTransaction();
         tx.begin();
         em.persist(car);
         tx.commit();
         
+        close();
+        
+    }
+    
+    public Car delete(int id)
+    {
+        Car carDeleted;
+        tx = em.getTransaction();
+        tx.begin();
+        
+        carDeleted = em.find(Car.class, id);
+        System.out.println("Car delete: "+carDeleted);
+        if(carDeleted != null)
+        {
+            em.remove(carDeleted);
+        }
+        tx.commit();
+        return carDeleted;
+        
+    }
+    
+    public void close()
+    {
         em.close();
         emf.close();
         em = null;

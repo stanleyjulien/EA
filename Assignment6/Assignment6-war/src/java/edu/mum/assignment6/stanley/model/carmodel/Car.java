@@ -22,9 +22,10 @@ public class Car {
     private int id;
     private String make;
     private String model;
-    private int years;
+    private int year;
     private int miles;
-    private Color color;
+    //private Color color;
+    private String color;
     
     public Car(){}
 
@@ -44,12 +45,12 @@ public class Car {
         this.model = model;
     }
 
-    public int getYears() {
-        return years;
+    public int getYear() {
+        return year;
     }
 
-    public void setYears(int years) {
-        this.years = years;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public int getMiles() {
@@ -60,12 +61,28 @@ public class Car {
         this.miles = miles;
     }
 
-    public Color getColor() {
+    /*public Color getColor() {
         return color;
     }
 
     public void setColor(Color color) {
         this.color = color;
+    }*/
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     

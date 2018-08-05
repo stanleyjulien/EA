@@ -11,13 +11,14 @@
         
         <h:form>
             Make     <h:inputText value="#{carMB.car.make}"></h:inputText> <BR></BR>
-            Model    <h:inputText value="{CarMB.setCar().setModel()}"></h:inputText> <BR></BR>
-            Year     <h:inputText value="{CarMB.setCar().setYear()}"></h:inputText> <BR></BR>
-            Mile     <h:inputText value="{CarMB.setCar().setMile()}"></h:inputText> <BR></BR>
-            Color    <h:inputText value="{CarMB.setCar().setColor()}"></h:inputText> <BR></BR>
+            Model    <h:inputText value="#{carMB.car.model}"></h:inputText> <BR></BR>
+            Year     <h:inputText value="#{carMB.car.year}"></h:inputText> <BR></BR>
+            Mile     <h:inputText value="#{carMB.car.miles}"></h:inputText> <BR></BR>
+            Color    <h:inputText value="#{carMB.car.color}"></h:inputText> <BR></BR>
             <h:commandButton value="Home" action="index"></h:commandButton> <BR></BR>
-            <h:commandButton value="Save" action="{CarMB.getMycrud}"></h:commandButton>
-            <h:commandButton value="Delete"></h:commandButton>
+            <h:commandButton value="Save" action="#{carMB.save()}"></h:commandButton> <BR></BR>
+            Car Id <h:inputText value="#{carMB.car.id}"></h:inputText> 
+            <h:commandButton value="Delete" action="#{carMB.delete()}"></h:commandButton>
             <h:commandButton value="Update"></h:commandButton>
             <h:commandButton value="Search"></h:commandButton>
         </h:form>

@@ -26,7 +26,7 @@ public class CarMB implements Serializable {
      * Creates a new instance of CarMB
      */
     
-    private Car car;
+    private Car car = new Car();
     
     //@Inject
     private MyCRUD mycrud = new MyCRUD();
@@ -43,10 +43,20 @@ public class CarMB implements Serializable {
         this.car = car;
     }*/
 
-    public MyCRUD getMycrud() {
+    /*public MyCRUD getMycrud() {
         return mycrud;
+    }*/
+    public void save()
+    {
+        //MyCRUD mycrud = new MyCRUD();
+        mycrud.save(car);
     }
-
+    
+    public Car delete()
+    {
+        System.out.println("Id: "+car.getId());
+        return mycrud.delete(car.getId());
+    }
     /*public void setMycrud(MyCRUD mycrud) {
         this.mycrud = mycrud;
     }*/
