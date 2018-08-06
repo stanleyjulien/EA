@@ -57,6 +57,19 @@ public class CarMB implements Serializable {
         System.out.println("Id: "+car.getId());
         return mycrud.delete(car.getId());
     }
+    
+    public void update()
+    {
+        System.out.println(car.getId());
+        mycrud.update(car);
+    }
+
+    public void search()
+    {
+        System.out.println(car.getId());
+        car = mycrud.search(car.getId());
+        //return mycrud.search(car.getId());
+    }
     /*public void setMycrud(MyCRUD mycrud) {
         this.mycrud = mycrud;
     }*/

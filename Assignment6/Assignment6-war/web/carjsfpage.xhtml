@@ -6,8 +6,7 @@
         <title>Car Title</title>
     </h:head>
     <h:body>
-        Hello from Car Facelets 
-        <!--<h:commandButton value="" action=""></h:commandButton> -->
+        <h1>Car </h1>
         
         <h:form>
             Make     <h:inputText value="#{carMB.car.make}"></h:inputText> <BR></BR>
@@ -15,12 +14,12 @@
             Year     <h:inputText value="#{carMB.car.year}"></h:inputText> <BR></BR>
             Mile     <h:inputText value="#{carMB.car.miles}"></h:inputText> <BR></BR>
             Color    <h:inputText value="#{carMB.car.color}"></h:inputText> <BR></BR>
-            <h:commandButton value="Home" action="index"></h:commandButton> <BR></BR>
-            <h:commandButton value="Save" action="#{carMB.save()}"></h:commandButton> <BR></BR>
+            <h:commandButton value="Home" action="index"></h:commandButton> 
+            <h:commandButton value="Save" action="#{carMB.save()}"></h:commandButton> <BR /><BR />
             Car Id <h:inputText value="#{carMB.car.id}"></h:inputText> 
             <h:commandButton value="Delete" action="#{carMB.delete()}"></h:commandButton>
-            <h:commandButton value="Update"></h:commandButton>
-            <h:commandButton value="Search"></h:commandButton>
+            <h:commandButton value="Update" action="#{carMB.update()}"></h:commandButton>
+            <h:commandButton value="Search" action="#{carMB.search()}"></h:commandButton>
         </h:form>
     </h:body>
 </html>

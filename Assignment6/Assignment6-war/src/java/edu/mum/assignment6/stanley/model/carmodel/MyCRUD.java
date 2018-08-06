@@ -26,6 +26,17 @@ public class MyCRUD {
         em = emf.createEntityManager();
     }
     
+    public Car search(int id)
+    {
+        Car carFind = em.find(Car.class, id);
+        //tx = em.getTransaction();
+        //tx.begin();
+        
+        //tx.commit();
+        close();
+        return carFind;
+    }
+    
     public void save(Car car)
     {
         tx = em.getTransaction();
@@ -35,6 +46,30 @@ public class MyCRUD {
         
         close();
         
+    }
+    
+    public Car update(Car car)
+    {
+        Car carUpdated = em.find(Car.class, car.getId());
+        System.out.println(carUpdated);
+        System.out.println(carUpdated.getMake());
+        //System.out.println("tx: "+tx);
+        tx = em.getTransaction();
+        tx.begin();
+        //tx.commit();
+        //carUpdated = em.find(Car.class, id);
+        System.out.println(carUpdated);
+        if(carUpdated != null)
+        {
+            System.out.println(car.getColor());
+            em.merge(car);
+            //em.persist(car);
+            //em.persist(carUpdated);
+        }
+        tx.commit();
+        close();
+        
+        return carUpdated;
     }
     
     public Car delete(int id)
@@ -50,6 +85,7 @@ public class MyCRUD {
             em.remove(carDeleted);
         }
         tx.commit();
+        close();
         return carDeleted;
         
     }
@@ -58,6 +94,7 @@ public class MyCRUD {
     {
         em.close();
         emf.close();
+        tx = null;
         em = null;
         emf = null;
     }
