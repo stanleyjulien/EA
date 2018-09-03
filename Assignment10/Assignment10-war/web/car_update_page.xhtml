@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Update Car Page</title>
+    </h:head>
+    <h:body>
+        Car Update
+        <h:form>
+            Enter Car Id to be update: <h:inputText value="#{carUpdateMB.carId}"></h:inputText> 
+            <h:commandButton value="Search" action = "#{carUpdateMB.search()}">  </h:commandButton>
+            <br></br> <br></br>
+            Make: <h:inputText value="#{carUpdateMB.car.make}"></h:inputText> <br></br>
+            Model: <h:inputText value="#{carUpdateMB.car.model}"></h:inputText> <BR />
+            Year: <h:inputText value="#{carUpdateMB.car.year}"></h:inputText> <BR />
+            Miles: <h:inputText value="#{carUpdateMB.car.miles}"></h:inputText> <BR />
+            Color: <h:inputText value="#{carUpdateMB.car.color}"></h:inputText> <BR />
+            
+            <h:commandButton value="Update" action = "#{carUpdateMB.update()}">  </h:commandButton>
+            <h:commandButton value="List Car" action = "car_list_page">  </h:commandButton>
+            <h:commandButton value="Home" action = "index"> </h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+
