@@ -9,6 +9,7 @@
     <h:body>
         <h:form>
             <p>Delete Car</p>
+            <p>Number of cars: #{carDeleteMB.cars.size()}</p>
             Id: <h:inputText value="#{carDeleteMB.carId}"></h:inputText>
             <h:commandButton value="Delete" action = "#{carDeleteMB.delete()}"> </h:commandButton>
             <h:commandButton value="List Car Page" action = "car_list_page">  </h:commandButton>

@@ -11,8 +11,9 @@ import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -22,20 +23,28 @@ import javax.transaction.Transactional;
 @RequestScoped
 public class CarInsertMB {
 
-    @PersistenceContext(unitName = "Assignment10-warPU")
-    EntityManager em;
+    //@PersistenceContext(unitName = "Assignment10-warPU")
+    private EntityManagerFactory emf;
+    private EntityManager em;
     private Car car = new Car();
     List<Car> cars = new ArrayList<>();
     
     public CarInsertMB() {
+        emf = Persistence.createEntityManagerFactory("Assignment10_2-warPU");
+        em = emf.createEntityManager();
     }
     
-    @Transactional
+    //@Transactional
     public void insert()
     {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
         System.out.println("Test car before: "+car);
         em.persist(car);
+        tx.commit();
         System.out.println("Test car after: "+car);
+        em.close();
+        emf.close();
     }
 
 

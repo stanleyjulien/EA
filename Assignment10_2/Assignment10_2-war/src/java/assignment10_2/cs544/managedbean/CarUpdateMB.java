@@ -9,8 +9,10 @@ import assignment10_2.cs544.entity.Car;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.LockModeType;
-import javax.persistence.PersistenceContext;
+import javax.persistence.Persistence;
 import javax.transaction.Transactional;
 
 /**
@@ -21,7 +23,8 @@ import javax.transaction.Transactional;
 @RequestScoped
 public class CarUpdateMB {
 
-    @PersistenceContext(unitName="Assignment10-warPU")
+    //@PersistenceContext(unitName="Assignment10-warPU")
+    private EntityManagerFactory emf;
     private EntityManager em;
     private Car car = new Car();
     private int carId;
@@ -29,6 +32,8 @@ public class CarUpdateMB {
     //Car carToUpdate;
     
     public CarUpdateMB() {
+        emf = Persistence.createEntityManagerFactory("Assignment10_2-warPU");
+        em = emf.createEntityManager();
     }
 
 
@@ -64,6 +69,8 @@ public class CarUpdateMB {
     @Transactional
     public void update()
     {
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
         Car carToUpdate = em.find(Car.class, carId);
         em.lock(carToUpdate, LockModeType.OPTIMISTIC);
         //System.out.println("CarToUpdate id: "+ carToUpdate.getId());
@@ -71,6 +78,8 @@ public class CarUpdateMB {
         if(carToUpdate == null)
         {
             System.out.println("Car not found");
+            em.close();
+            emf.close();
             return;
         }
         carToUpdate.setMake(car.getMake());
@@ -82,6 +91,9 @@ public class CarUpdateMB {
         
         System.out.println("Car to update: "+ car);
         em.persist(carToUpdate);
+        tx.commit();
+        em.close();
+        emf.close();
         System.out.println("Car updated sucessfully");
     }
 }
