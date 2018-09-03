@@ -61,6 +61,7 @@ public class CarDeleteMB {
         
         
         em.remove(carToDelete);
+        System.out.println("A car were deleted succesfully!");
         getCars();
     }
     

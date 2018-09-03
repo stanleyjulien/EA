@@ -33,9 +33,9 @@ public class CarInsertMB {
     @Transactional
     public void insert()
     {
-        System.out.println("Test car before: "+car);
+        
         em.persist(car);
-        System.out.println("Test car after: "+car);
+        System.out.println("A car were added succesfully!");
     }
 
 

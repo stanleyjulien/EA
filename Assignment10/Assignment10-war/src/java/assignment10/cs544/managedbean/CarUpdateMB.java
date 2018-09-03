@@ -66,8 +66,7 @@ public class CarUpdateMB {
     {
         Car carToUpdate = em.find(Car.class, carId);
         em.lock(carToUpdate, LockModeType.OPTIMISTIC);
-        //System.out.println("CarToUpdate id: "+ carToUpdate.getId());
-        //System.out.println("Car id: "+ car.getId()+" "+car);
+        
         if(carToUpdate == null)
         {
             System.out.println("Car not found");
@@ -78,9 +77,8 @@ public class CarUpdateMB {
         carToUpdate.setMiles(car.getMiles());
         carToUpdate.setYear(car.getYear());
         carToUpdate.setColor(car.getColor());
-        //car = carToUpdate; //To be able to display in to the field
         
-        System.out.println("Car to update: "+ car);
+        
         em.persist(carToUpdate);
         System.out.println("Car updated sucessfully");
     }
