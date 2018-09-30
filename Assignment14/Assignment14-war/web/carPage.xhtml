@@ -14,12 +14,43 @@
             Miles: <h:inputText value="#{carMB.car.miles}"></h:inputText> <br />
             Color: <h:inputText value="#{carMB.car.color}"></h:inputText> <br />
             Years: <h:inputText value="#{carMB.car.years}"></h:inputText> <br />
-            
+
             <h:commandButton value="Create" action="#{carMB.create()}"></h:commandButton>
             <h:commandButton value="Update all" action="#{carMB.updateAll()}" >
-                <f:ajax execute="@form" />
-            </h:commandButton>
+                <f:ajax execute="@form" render=":listcars" />
+            </h:commandButton> <br />
+            Id: <h:inputText value="#{carMB.id}"></h:inputText> 
+            <h:commandButton value="Search" action="#{carMB.searchCar()}"></h:commandButton>
+            <h:commandButton value="Delete" action="#{carMB.delete()}"></h:commandButton> 
+            <h:commandButton value="Update" action="#{carMB.update()}"></h:commandButton><br /><br />
         </h:form>
+
+        <h:dataTable id="listcars" value="#{carMB.cars}" var="car" border="1">
+            <h:column>
+                <f:facet name="header"> Id </f:facet>
+                    #{car.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> Model </f:facet>
+                    #{car.model}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> Make </f:facet>
+                    #{car.make}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> Miles </f:facet>
+                    #{car.miles}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> Color </f:facet>
+                    #{car.color}
+            </h:column>
+            <h:column>
+                <f:facet name="header"> Years </f:facet>
+                    #{car.years}
+            </h:column>
+        </h:dataTable>
 
     </h:body>
 </html>

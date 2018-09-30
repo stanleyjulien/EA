@@ -5,11 +5,13 @@
  */
 package assignment14.myentity.carentity;
 
+import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
@@ -17,11 +19,12 @@ import javax.persistence.Table;
  *
  * @author midou
  */
-@Stateless
 @Entity
 @Table(name = "Tab_Car14")
-@NamedQuery(name = "numOfCar", query = "select c from Car c")
-public class Car {
+@NamedQueries(@NamedQuery(name = "numOfCar", query = "select c from Car c")
+             //,@NamedQuery(name = "")
+)
+public class Car implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -36,6 +39,9 @@ public class Car {
     public Car()
     {}
 
+    public int getId() {
+        return id;
+    }
     
     public String getModel() {
         return model;
