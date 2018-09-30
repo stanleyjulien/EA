@@ -9,6 +9,7 @@ import assignment12.entity.Car;
 import assignment12.entity.LogCall;
 import assignment12.myinterceptors.LoggingInterceptor;
 import assignment12.persistences.Crud;
+import assignment12.persistences.LogManager;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateful;
@@ -29,6 +30,8 @@ public class CarBusiness {
     private Crud crud ; //= new Crud();
     @EJB
     private LoggingInterceptor logging;
+    @EJB
+    private LogManager logManager;
     @PersistenceContext(unitName = "Assignment12-ejbPU", type = PersistenceContextType.EXTENDED)
     private EntityManager em;
     
@@ -65,7 +68,7 @@ public class CarBusiness {
     }
     public void clearLogs()
     {
-        logging.clearLogs();
+        logManager.clearLogs();
     }
     public List<Car> getCars()
     {
@@ -74,7 +77,7 @@ public class CarBusiness {
     
     public List<LogCall> logCars()
     {
-        return logging.logCars();
+        return logManager.logCars();
     }
     
     public int getCheck()

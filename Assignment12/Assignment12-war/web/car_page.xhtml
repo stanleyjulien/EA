@@ -26,8 +26,8 @@
 
         </h:form>
 
-        <div class="Container">
-            <div class="List Car" style="width: #{50};">
+        <div class="Container" style="width: 100%;">
+            <div class="List Car" style="width: auto; float: left;">
                 <h3>List Car</h3>
                 <h:form>
                     <h:commandButton value="Clear" action="#{carMB.clearCars()}"></h:commandButton>
@@ -60,7 +60,7 @@
                 </h:dataTable>
             </div>
 
-            <div class="Car Log" style="width: #{50};">
+            <div class="Car Log" style="width: auto; float: left;">
                 <h3>Car Log</h3>
                 <h:form>
                     <h:commandButton value="Clear" action="#{carMB.clearLogs()}"></h:commandButton>

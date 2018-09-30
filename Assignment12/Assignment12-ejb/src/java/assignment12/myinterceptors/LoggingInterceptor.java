@@ -32,19 +32,7 @@ public class LoggingInterceptor {
     
     private Logger logger = Logger.getLogger("assignment12.persistences");
     
-    public List<LogCall> logCars()
-    {
-        Query query = em.createQuery("select l from LogCall l");
-        List<LogCall> logs = query.getResultList();
-        return logs;
-    }
     
-    public void clearLogs()
-    {
-        Query query = em.createQuery("delete from LogCall");
-        query.executeUpdate();
-        
-    }
     
     @AroundInvoke
     public Object logMethod(InvocationContext ic) throws Exception
@@ -55,11 +43,7 @@ public class LoggingInterceptor {
         System.out.println("Logger Method Name: "+ic.getMethod().getName());
         System.out.println("Logger Parameters: "+Arrays.toString(ic.getParameters()));
         */
-        logCall.setClassName(ic.getTarget().getClass().getName());
-        logCall.setMethodName(ic.getMethod().getName());
-        logCall.setDescription(Arrays.toString(ic.getParameters()));
         
-        em.persist(logCall);
                 
         /*for(Object ob : ic.getParameters())
         {
@@ -72,7 +56,14 @@ public class LoggingInterceptor {
         }
         finally
         {
+            logCall.setClassName(ic.getTarget().getClass().getName());
+            logCall.setMethodName(ic.getMethod().getName());
+            
+            logCall.setDescription(Arrays.toString(ic.getParameters()));
+            em.persist(logCall);
             logger.exiting(ic.getTarget().toString(), ic.getMethod().getName());
         }
+        
+        
     }
 }
