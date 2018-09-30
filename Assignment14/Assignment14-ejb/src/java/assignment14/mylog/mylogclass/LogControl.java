@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment15.mylog.mylogclass;
+package assignment14.mylog.mylogclass;
 
 import java.util.logging.Logger;
 import javax.ejb.Stateless;

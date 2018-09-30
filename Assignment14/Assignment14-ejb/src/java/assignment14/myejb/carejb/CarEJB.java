@@ -6,7 +6,7 @@
 package assignment14.myejb.carejb;
 
 import assignment14.myentity.carentity.Car;
-import assignment15.mylog.mylogclass.LogControl;
+import assignment14.mylog.mylogclass.LogControl;
 import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

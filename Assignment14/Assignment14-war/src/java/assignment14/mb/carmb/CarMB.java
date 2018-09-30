@@ -7,7 +7,7 @@ package assignment14.mb.carmb;
 
 import assignment14.myejb.carejb.CarEJB;
 import assignment14.myentity.carentity.Car;
-import assignment15.mylog.mylogclass.LogControl;
+import assignment14.mylog.mylogclass.LogControl;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
